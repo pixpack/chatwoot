@@ -3,9 +3,10 @@
 
 # Inboxes
 /accounts/{account_id}/inboxes:
-  $ref: ./inboxes/index.yml
-/accounts/{account_id}/inboxes:
-  $ref: ./inboxes/create.yml
+  get:
+    $ref: ./inboxes/index.yml
+  post:
+    $ref: ./inboxes/create.yml
 /accounts/{account_id}/inboxes/{id}:
   $ref: ./inboxes/update.yml
 /accounts/{account_id}/inboxes/{id}/set_agent_bot:
