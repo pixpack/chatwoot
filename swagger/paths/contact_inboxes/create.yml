@@ -5,9 +5,8 @@ post:
   description: Create a contact inbox record for an inbox
   summary: Create contact inbox
   parameters:
-    - name: inbox_id
-      in: params
-      type: number
+    - $ref: '#/parameters/account_id'
+    - $ref: '#/parameters/inbox_id'
   responses:
     200:
       description: Success

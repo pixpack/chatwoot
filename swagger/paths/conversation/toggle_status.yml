@@ -8,11 +8,8 @@ post:
     - userApiKey: []
     - agentBotApiKey: []
   parameters:
-    - name: id
-      in: path
-      type: number
-      description: ID of the conversation
-      required: true
+    - $ref: '#/parameters/account_id'
+    - $ref: '#/parameters/conversation_id'
     - name: data
       in: body
       required: true

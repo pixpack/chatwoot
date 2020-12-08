@@ -1,0 +1,11 @@
+account_id:
+  $ref: ./account_id.yml
+
+conversation_id:
+  $ref: ./conversation_id.yml
+
+contact_id:
+  $ref: ./contact_id.yml
+
+inbox_id:
+  $ref: ./inbox_id.yml

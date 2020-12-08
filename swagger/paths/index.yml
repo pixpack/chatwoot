@@ -7,9 +7,9 @@
     $ref: ./inboxes/index.yml
   post:
     $ref: ./inboxes/create.yml
-/accounts/{account_id}/inboxes/{id}:
+/accounts/{account_id}/inboxes/{inbox_id}:
   $ref: ./inboxes/update.yml
-/accounts/{account_id}/inboxes/{id}/set_agent_bot:
+/accounts/{account_id}/inboxes/{inbox_id}/set_agent_bot:
   $ref: ./inboxes/set_agent_bot.yml
 
 /agent_bots:
@@ -18,35 +18,35 @@
 # Conversations
 /accounts/{account_id}/conversations:
   $ref: ./conversation/index_or_create.yml
-/accounts/{account_id}/conversations/{id}:
+/accounts/{account_id}/conversations/{conversation_id}:
   $ref: ./conversation/crud.yml
-/accounts/{account_id}/conversations/{id}/toggle_status:
+/accounts/{account_id}/conversations/{conversation_id}/toggle_status:
   $ref: ./conversation/toggle_status.yml
 
 # Messages
-/accounts/{account_id}/conversations/{id}/messages:
+/accounts/{account_id}/conversations/{conversation_id}/messages:
   $ref: ./conversation/messages/index_create.yml
 
-/accounts/{account_id}/conversations/{id}/labels:
+/accounts/{account_id}/conversations/{conversation_id}/labels:
   $ref: ./conversation/labels.yml
 
-/accounts/{account_id}/conversations/{id}/assignments:
+/accounts/{account_id}/conversations/{conversation_id}/assignments:
   $ref: ./conversation/assignments.yml
 
 # Contacts
 /accounts/{account_id}/contacts:
   $ref: ./contact/list_create.yml
 
-/accounts/{account_id}/contacts/{id}:
+/accounts/{account_id}/contacts/{contact_id}:
   $ref: ./contact/crud.yml
 
-/accounts/{account_id}/contacts/{id}/conversations:
+/accounts/{account_id}/contacts/{contact_id}/conversations:
   $ref: ./contact/conversations.yml
 
 /accounts/{account_id}/contacts/search:
   $ref: ./contact/search.yml
 
-/accounts/{account_id}/contacts/{id}/contact_inboxes:
+/accounts/{account_id}/contacts/{inbox_id}/contact_inboxes:
   $ref: ./contact_inboxes/create.yml
 
 

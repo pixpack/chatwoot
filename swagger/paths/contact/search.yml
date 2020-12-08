@@ -5,6 +5,7 @@ get:
   description: Search the contacts using a search key, currently supports email search
   summary: Search Contacts
   parameters:
+    - $ref: '#/parameters/account_id'
     - name: q
       in: query
       type: string

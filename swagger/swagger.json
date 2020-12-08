@@ -53,6 +53,33 @@
   ],
   "paths": {
     "/accounts/{account_id}/inboxes": {
+      "get": {
+        "tags": [
+          "Inbox"
+        ],
+        "operationId": "listAllInboxes",
+        "summary": "List all inboxes",
+        "description": "List all inboxes available in the current account",
+        "parameters": [
+          {
+            "$ref": "#/parameters/account_id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/inbox"
+            }
+          },
+          "404": {
+            "description": "Inbox not found"
+          },
+          "403": {
+            "description": "Access denied"
+          }
+        }
+      },
       "post": {
         "tags": [
           "Inbox"
@@ -61,6 +88,9 @@
         "summary": "Create an inbox",
         "description": "You can create more than one website inbox in each account",
         "parameters": [
+          {
+            "$ref": "#/parameters/account_id"
+          },
           {
             "name": "data",
             "in": "body",
@@ -127,7 +157,7 @@
         }
       }
     },
-    "/accounts/{account_id}/inboxes/{id}": {
+    "/accounts/{account_id}/inboxes/{inbox_id}": {
       "patch": {
         "tags": [
           "Inbox"
@@ -137,11 +167,10 @@
         "description": "Add avatar and disable auto assignment for an inbox",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "ID of the inbox",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/inbox_id"
           },
           {
             "name": "data",
@@ -209,7 +238,7 @@
         }
       }
     },
-    "/accounts/{account_id}/inboxes/{id}/set_agent_bot": {
+    "/accounts/{account_id}/inboxes/{inbox_id}/set_agent_bot": {
       "post": {
         "tags": [
           "Inbox"
@@ -219,11 +248,10 @@
         "description": "To add an agent bot pass agent_bot id, to remove agent bot from an inbox pass null",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "ID of the inbox",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/inbox_id"
           },
           {
             "name": "data",
@@ -287,6 +315,9 @@
         "description": "Search for conversations containing a messages with the query string",
         "summary": "Conversations Search",
         "parameters": [
+          {
+            "$ref": "#/parameters/account_id"
+          },
           {
             "name": "q",
             "in": "query",
@@ -368,6 +399,9 @@
         ],
         "parameters": [
           {
+            "$ref": "#/parameters/account_id"
+          },
+          {
             "name": "data",
             "in": "body",
             "required": true,
@@ -409,7 +443,7 @@
         }
       }
     },
-    "/accounts/{account_id}/conversations/{id}": {
+    "/accounts/{account_id}/conversations/{conversation_id}": {
       "get": {
         "tags": [
           "Conversation"
@@ -419,11 +453,10 @@
         "description": "Get all details regarding a conversation with all messages in the conversation",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "ID of Conversation",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/conversation_id"
           }
         ],
         "responses": {
@@ -442,7 +475,7 @@
         }
       }
     },
-    "/accounts/{account_id}/conversations/{id}/toggle_status": {
+    "/accounts/{account_id}/conversations/{conversation_id}/toggle_status": {
       "post": {
         "tags": [
           "Conversation"
@@ -464,11 +497,10 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "ID of the conversation",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/conversation_id"
           },
           {
             "name": "data",
@@ -507,7 +539,7 @@
         }
       }
     },
-    "/accounts/{account_id}/conversations/{id}/messages": {
+    "/accounts/{account_id}/conversations/{conversation_id}/messages": {
       "get": {
         "tags": [
           "Messages"
@@ -517,11 +549,10 @@
         "description": "List all messages of a conversation",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "ID of the conversation",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/conversation_id"
           }
         ],
         "responses": {
@@ -568,11 +599,10 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "ID of the conversation",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/conversation_id"
           },
           {
             "name": "data",
@@ -606,7 +636,7 @@
         }
       }
     },
-    "/accounts/{account_id}/conversations/{id}/labels": {
+    "/accounts/{account_id}/conversations/{conversation_id}/labels": {
       "get": {
         "tags": [
           "ConversationLabels"
@@ -616,11 +646,10 @@
         "description": "Lists all the labels of a conversation",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "ID of the conversation",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/conversation_id"
           }
         ],
         "responses": {
@@ -647,11 +676,10 @@
         "description": "Creates new labels and associates it with the conversation",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "ID of the conversation",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/conversation_id"
           },
           {
             "name": "data",
@@ -687,7 +715,7 @@
         }
       }
     },
-    "/accounts/{account_id}/conversations/{id}/assignments": {
+    "/accounts/{account_id}/conversations/{conversation_id}/assignments": {
       "post": {
         "tags": [
           "ConversationAssignment"
@@ -697,11 +725,10 @@
         "description": "Assign a conversation to an agent",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "id of the conversation",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/conversation_id"
           },
           {
             "name": "data",
@@ -743,6 +770,9 @@
         "summary": "List Contacts",
         "parameters": [
           {
+            "$ref": "#/parameters/account_id"
+          },
+          {
             "name": "query_hash",
             "in": "query",
             "type": "string"
@@ -772,6 +802,9 @@
         "summary": "Create Contact",
         "parameters": [
           {
+            "$ref": "#/parameters/account_id"
+          },
+          {
             "name": "data",
             "in": "body",
             "required": true,
@@ -796,7 +829,7 @@
         }
       }
     },
-    "/accounts/{account_id}/contacts/{id}": {
+    "/accounts/{account_id}/contacts/{contact_id}": {
       "get": {
         "tags": [
           "Contact"
@@ -805,11 +838,10 @@
         "summary": "Show Contact",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "id of the contact",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/contact_id"
           }
         ],
         "responses": {
@@ -835,11 +867,10 @@
         "summary": "Update Contact",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "id of the contact",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/contact_id"
           },
           {
             "name": "data",
@@ -866,7 +897,7 @@
         }
       }
     },
-    "/accounts/{account_id}/contacts/{id}/conversations": {
+    "/accounts/{account_id}/contacts/{contact_id}/conversations": {
       "get": {
         "tags": [
           "Contact"
@@ -875,11 +906,10 @@
         "summary": "Conversations",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
-            "description": "id of the contact",
-            "required": true
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/contact_id"
           }
         ],
         "responses": {
@@ -908,6 +938,9 @@
         "summary": "Search Contacts",
         "parameters": [
           {
+            "$ref": "#/parameters/account_id"
+          },
+          {
             "name": "q",
             "in": "query",
             "type": "string"
@@ -934,7 +967,7 @@
         }
       }
     },
-    "/accounts/{account_id}/contacts/{id}/contact_inboxes": {
+    "/accounts/{account_id}/contacts/{inbox_id}/contact_inboxes": {
       "post": {
         "tags": [
           "Contact"
@@ -944,9 +977,10 @@
         "summary": "Create contact inbox",
         "parameters": [
           {
-            "name": "inbox_id",
-            "in": "params",
-            "type": "number"
+            "$ref": "#/parameters/account_id"
+          },
+          {
+            "$ref": "#/parameters/inbox_id"
           }
         ],
         "responses": {
@@ -1657,6 +1691,36 @@
           "description": "attributes based on your content type"
         }
       }
+    }
+  },
+  "parameters": {
+    "account_id": {
+      "name": "account_id",
+      "in": "path",
+      "type": "number",
+      "description": "ID of the account",
+      "required": true
+    },
+    "conversation_id": {
+      "name": "conversation_id",
+      "in": "path",
+      "type": "number",
+      "description": "ID of the conversation",
+      "required": true
+    },
+    "contact_id": {
+      "name": "contact_id",
+      "in": "path",
+      "type": "number",
+      "description": "id of the contact",
+      "required": true
+    },
+    "inbox_id": {
+      "name": "inbox_id",
+      "in": "path",
+      "type": "number",
+      "description": "ID of the inbox",
+      "required": true
     }
   }
 }

@@ -5,11 +5,8 @@ get:
   summary: Conversation Details
   description: Get all details regarding a conversation with all messages in the conversation
   parameters:
-    - name: id
-      in: path
-      type: number
-      description: ID of Conversation
-      required: true
+    - $ref: '#/parameters/account_id'
+    - $ref: '#/parameters/conversation_id'
   responses:
     200:
       description: Success

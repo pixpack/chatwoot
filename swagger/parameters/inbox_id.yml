@@ -1,0 +1,5 @@
+name: inbox_id
+in: path
+type: number
+description: ID of the inbox
+required: true

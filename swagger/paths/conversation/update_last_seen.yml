@@ -5,11 +5,7 @@ post:
   summary: Update Last Seen
   description: Updates the last seen of the conversation so that conversations will have the bubbles in the agents screen
   parameters:
-    - name: id
-      in: path
-      type: number
-      description: id of the conversation
-      required: true
+    - $ref: '#/parameters/conversation_id'
   responses:
     200:
       description: Success

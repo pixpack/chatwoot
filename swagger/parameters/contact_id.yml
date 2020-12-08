@@ -1,0 +1,5 @@
+name: contact_id
+in: path
+type: number
+description: id of the contact
+required: true

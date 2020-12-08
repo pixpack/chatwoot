@@ -46,6 +46,7 @@ get:
   description: Search for conversations containing a messages with the query string
   summary: Conversations Search
   parameters:
+    - $ref: '#/parameters/account_id'
     - name: q
       in: query
       type: string
@@ -91,6 +92,7 @@ post:
     - userApiKey: []
     - agentBotApiKey: []
   parameters:
+    - $ref: '#/parameters/account_id'
     - name: data
       in: body
       required: true

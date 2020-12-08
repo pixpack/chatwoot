@@ -5,6 +5,7 @@ get:
   description: Listing all the contacts with pagination
   summary: List Contacts
   parameters:
+    - $ref: '#/parameters/account_id'
     - name: query_hash
       in: query
       type: string
@@ -25,6 +26,7 @@ post:
   description: Create New Contact
   summary: Create Contact
   parameters:
+    - $ref: '#/parameters/account_id'
     - name: data
       in: body
       required: true

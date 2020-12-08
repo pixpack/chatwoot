@@ -1,0 +1,5 @@
+name: account_id
+in: path
+type: number
+description: ID of the account
+required: true

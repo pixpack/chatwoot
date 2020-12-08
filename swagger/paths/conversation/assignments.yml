@@ -5,11 +5,8 @@ post:
   summary: Assign Conversation
   description: Assign a conversation to an agent
   parameters:
-    - name: id
-      in: path
-      type: number
-      description: id of the conversation
-      required: true
+    - $ref: '#/parameters/account_id'
+    - $ref: '#/parameters/conversation_id'
     - name: data
       in: body
       required: true

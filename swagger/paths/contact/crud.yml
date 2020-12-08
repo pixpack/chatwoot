@@ -4,11 +4,8 @@ get:
   operationId: contactDetails
   summary: Show Contact
   parameters:
-    - name: id
-      in: path
-      type: number
-      description: id of the contact
-      required: true
+    - $ref: '#/parameters/account_id'
+    - $ref: '#/parameters/contact_id'
   responses:
     200:
       description: Success
@@ -25,11 +22,8 @@ put:
   operationId: contactUpdate
   summary: Update Contact
   parameters:
-    - name: id
-      in: path
-      type: number
-      description: id of the contact
-      required: true
+    - $ref: '#/parameters/account_id'
+    - $ref: '#/parameters/contact_id'
     - name: data
       in: body
       required: true

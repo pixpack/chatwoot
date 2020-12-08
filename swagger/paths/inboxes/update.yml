@@ -5,11 +5,8 @@ patch:
   summary: Update Inbox
   description: Add avatar and disable auto assignment for an inbox
   parameters:
-    - name: id
-      in: path
-      type: number
-      description: ID of the inbox
-      required: true
+    - $ref: '#/parameters/account_id'
+    - $ref: '#/parameters/inbox_id'
     - name: data
       in: body
       required: true
